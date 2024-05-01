@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Delhi Technical Campus</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Technical Campus</title>
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --bg-color: #fdfdfd;
+        --text-color: #333;
+        --main-color: #fad648;
+        --white-color: #fdfdfd;
+        --shadow-color: rgba(0, 0, 0, .2);
+    }
+
+    *::selection {
+        background: var(--main-color);
+        color: var(--bg-color);
+    }
+
+    .dark-mode {
+        --bg-color: black;
+        --text-color: #fdfdfd;
+        --shadow-color: #fad648;
+    }
+
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+    }
+
+    body {
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem 7%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        z-index: 100;
+        transition: .5s;
+    }
+
+    .header.sticky {
+        background: var(--bg-color);
+        box-shadow: 0 .1rem 1rem var(--shadow-color);
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        color: var(--main-color);
+        font-weight: 600;
+        margin-right: auto;
+    }
+
+    .navbar a {
+        position: relative;
+        font-size: 1.7rem;
+        color: var(--white-color);
+        font-weight: 500;
+        margin-right: 3.5rem;
+    }
+
+    .header.sticky .navbar a {
+        color: var(--text-color);
+    }
+
+    .header.sticky .navbar a.active {
+        color: var(--main-color);
+    }
+
+    .navbar a.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: .2rem;
+        background: var(--white-color);
+    }
+
+    .header.sticky .navbar a::before {
+        background: var(--main-color);
+        opacity: .7;
+    }
+
+    #darkMode-icon {
+        font-size: 2.4rem;
+        color: var(--white-color);
+        cursor: pointer;
+    }
+
+    .header.sticky #darkMode-icon {
+        color: var(--text-color);
+        opacity: .9;
+    }
+
+    #menu-icon {
+        font-size: 3.6rem;
+        color: var(--text-color);
+        display: none;
+    }
+
+    section {
+        min-height: 100vh;
+        padding: 10rem 7% 2rem;
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+    }
+
+    .home .home-content {
+        max-width: 44rem;
+    }
+
+    .home-content h3 {
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: .3;
+    }
+
+    .home-content h1 {
+        font-size: 5.6rem;
+        font-weight: 700;
+        margin-bottom: .3rem;
+    }
+
+    .home-content p {
+        font-size: 1.6rem;
+    }
+
+    .home-content .social-media a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        background: transparent;
+        border: .2rem solid var(--main-color);
+        border-radius: 50%;
+        box-shadow: 0 .2rem .5rem var(--shadow-color);
+        font-size: 2rem;
+        color: var(--main-color);
+        margin: 2.5rem 1.5rem 3rem 0;
+        transition: .5s ease;
+    }
+
+    .home-content .social-media a:hover {
+        background: var(--main-color);
+        color: var(--white-color);
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 1.2rem 2.8rem;
+        background: var(--main-color);
+        border-radius: .6rem;
+        box-shadow: 0 .2rem .5rem var(--shadow-color);
+        font-size: 1.6rem;
+        color: var(--white-color);
+        letter-spacing: .1rem;
+        font-weight: 600;
+        border: .2rem solid transparent;
+        transition: .5s ease;
+    }
+
+    .btn:hover {
+        background: transparent;
+        color: var(--main-color);
+        border-color: var(--main-color);
+    }
+
+    .home .profession-container {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .home .profession-container .profession-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 768px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: professionRotate 13s ease-out infinite;
+    }
+
+    @keyframes professionRotate {
+
+        0%,
+        20% {
+            transform: rotate(0deg);
+        }
+
+        25%,
+        45% {
+            transform: rotate(-90deg);
+        }
+
+        50%,
+        70% {
+            transform: rotate(-180deg);
+        }
+
+        75%,
+        95% {
+            transform: rotate(-270deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    .home .profession-box .profession {
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: var(--main-color);
+        transform: rotate(calc(360deg / 4 * var(--i)));
+        transform-origin: 384px;
+        background: var(--bg-color);
+        padding: 13px 0;
+    }
+
+    .home .profession-box .profession:nth-child(1) i {
+        margin-right: 15px;
+    }
+
+    .home .profession-box .profession:nth-child(2),
+    .home .profession-box .profession:nth-child(4) {
+        padding-bottom: 20px;
+    }
+
+    .home .profession i {
+        font-size: 3.8rem;
+    }
+
+    .home .profession h3 {
+        font-size: 3.2rem;
+        line-height: 1;
+        font-weight: 600;
+    }
+
+    .home .profession-box .circle {
+        width: 560px;
+        height: 560px;
+        border: 3px solid var(--main-color);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    .home .profession-container .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: 50vh solid var(--main-color);
+        border-right: 384px solid var(--main-color);
+        border-bottom: 50vh solid var(--main-color);
+        border-left: 384px solid transparent;
+    }
+
+    .home-img img {
+        position: absolute;
+        bottom: 0;
+        right: 40px;
+        pointer-events: none;
+        max-width: 480px;
+        max-height: 100vh;
+    }
+
+    span {
+        color: var(--main-color);
+    }
+
+    .about {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .about-img img {
+        width: 40vw;
+    }
+
+    .heading {
+        font-size: 4.5rem;
+        text-align: center;
+    }
+
+    .about-content h2 {
+        text-align: left;
+        line-height: 1.2;
+    }
+
+    .about-content h3 {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1.6rem;
+        margin: 2rem 0 3rem;
+    }
+
+    .services {
+        min-height: auto;
+        padding-bottom: 10rem;
+    }
+
+    .services h2 {
+        margin-bottom: 5rem;
+    }
+
+    .services .services-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .services-container .services-box {
+        flex: 1 1 30rem;
+        background: var(--bg-color);
+        padding: 3rem 2rem 4rem;
+        border-radius: 2rem;
+        box-shadow: 0 .1rem .5rem var(--shadow-color);
+        text-align: center;
+        border-top: .6rem solid var(--main-color);
+        border-bottom: .6rem solid var(--main-color);
+        transition: .5s ease;
+    }
+
+    .services-container .services-box:hover {
+        box-shadow: 0 .1rem 2rem var(--shadow-color);
+        transform: scale(1.02);
+    }
+
+    .services-box i {
+        font-size: 7rem;
+        color: var(--main-color);
+    }
+
+    .services-box h3 {
+        font-size: 2.6rem;
+        transition: .5s ease;
+    }
+
+    .services-box:hover h3 {
+        color: var(--main-color);
+    }
+
+    .services-box p {
+        font-size: 1.6rem;
+        margin: 1rem 0 3rem;
+    }
+
+    .portfolio {
+        min-height: auto;
+        padding-bottom: 10rem;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 4rem;
+    }
+
+    .portfolio .portfolio-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .portfolio-container .portfolio-box {
+        position: relative;
+        display: flex;
+        border-radius: 2rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+        overflow: hidden;
+    }
+
+    .portfolio-box img {
+        width: 100%;
+        transition: .5s ease;
+    }
+
+    .portfolio-box:hover img {
+        transform: scale(1.1);
+    }
+
+    .portfolio-box .portfolio-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+        color: var(--white-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 4rem;
+        opacity: 0;
+        transition: .5s ease;
+    }
+
+    .portfolio-box:hover .portfolio-layer {
+        opacity: 1;
+    }
+
+    .portfolio-layer h4 {
+        font-size: 3rem;
+    }
+
+    .portfolio-layer p {
+        font-size: 1.6rem;
+        margin: .3rem 0 1rem;
+    }
+
+    .portfolio-layer a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        background: var(--white-color);
+        border-radius: 50%;
+    }
+
+    .portfolio-layer a i {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .testimonial-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 5rem 1rem;
+    }
+
+    .testimonial-container .testimonial-wrapper {
+        position: relative;
+        max-width: 90rem;
+        width: 100%;
+        padding: 5rem;
+    }
+
+    .testimonial-wrapper .testimonial-box {
+        padding: 1rem;
+        border-radius: 2rem;
+        overflow: hidden;
+    }
+
+    .testimonial-content .testimonial-slide {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: var(--bg-color);
+        border-radius: 2rem;
+        box-shadow: 0 .1rem .5rem var(--shadow-color);
+        padding: 3rem 5rem;
+        border-top: .8rem solid var(--main-color);
+        border-bottom: .8rem solid var(--main-color);
+    }
+
+    .testimonial-slide img {
+        width: 14rem;
+        height: 14rem;
+        object-fit: cover;
+        border-radius: 50%;
+        border: .5rem solid var(--bg-color);
+        outline: .5rem solid var(--main-color);
+    }
+
+    .testimonial-slide h3 {
+        font-size: 2.5rem;
+        margin: 2rem 0;
+    }
+
+    .testimonial-slide p {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .testimonial-box .swiper-button-next,
+    .testimonial-box .swiper-button-prev {
+        color: var(--main-color);
+    }
+
+    .testimonial-box .swiper-button-next {
+        right: 0;
+    }
+
+    .testimonial-box .swiper-button-prev {
+        left: 0;
+    }
+
+    .testimonial-box .swiper-pagination-bullet {
+        background: rgba(0, 0, 0, .8);
+    }
+
+    .testimonial-box .swiper-pagination-bullet-active {
+        background: var(--main-color);
+    }
+
+    .contact {
+        min-height: auto;
+        padding-bottom: 7rem;
+    }
+
+    .contact h2 {
+        margin-bottom: 3rem;
+    }
+
+    .contact form {
+        max-width: 70rem;
+        margin: 1rem auto;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .contact form .input-box {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .contact form .input-box input,
+    .contact form textarea {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+        color: var(--text-color);
+        background: var(--bg-color);
+        border-radius: .8rem;
+        margin: .7rem 0;
+        box-shadow: 0 .1rem .5rem var(--shadow-color);
+    }
+
+    .contact form .input-box input {
+        width: 49%;
+    }
+
+    .contact form textarea {
+        resize: none;
+    }
+
+    .contact form .btn {
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 7%;
+        background: var(--main-color);
+    }
+
+    .footer-text p {
+        font-size: 1.6rem;
+        color: var(--white-color);
+    }
+
+    .footer-iconTop a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: .8rem;
+        background: var(--white-color);
+        border-radius: .8rem;
+        border: .2rem solid var(--main-color);
+        outline: .2rem solid transparent;
+        transition: .5s ease;
+    }
+
+    .footer-iconTop a:hover {
+        outline-color: var(--white-color);
+    }
+
+    .footer-iconTop a i {
+        font-size: 2.4rem;
+        color: #333;
+    }
+
+
+    /* BREAKPOINTS */
+    @media (max-width: 1200px) {
+        html {
+            font-size: 55%;
+        }
+
+        .home .profession-container .profession-box {
+            right: -10%;
+        }
+
+        .home .profession-container .overlay {
+            right: -6%;
+        }
+
+        .home-img img {
+            right: 0;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .home .profession-container .profession-box {
+            right: -15%;
+        }
+
+        .home-img img {
+            max-width: 420px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .header {
+            padding: 2rem 3%;
+        }
+
+        section {
+            padding: 10rem 3% 2rem;
+        }
+
+        .home .profession-container .profession-box {
+            right: -20%;
+        }
+
+        .home .profession-container .overlay {
+            right: -12%;
+        }
+
+        .home-img img {
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        .navbar a:nth-child(1) {
+            color: var(--main-color);
+        }
+
+        .navbar a.active::before {
+            background: var(--main-color);
+            opacity: .7;
+        }
+
+        .home .home-content {
+            max-width: 50rem;
+        }
+
+        .home .profession-container .profession-box {
+            right: -35%;
+        }
+
+        .home .profession-container .overlay {
+            right: -30%;
+        }
+
+        .home-img img {
+            display: none;
+        }
+
+        .footer {
+            padding: 2rem 3%;
+        }
+    }
+
+    @media (max-width: 896px) {
+        .navbar a:nth-child(2) {
+            color: var(--main-color);
+        }
+
+        .home .profession-container .profession-box {
+            right: -50%;
+        }
+
+        .home .profession-container .overlay {
+            right: -43%;
+        }
+    }
+
+    @media (max-width: 879px) {
+        .portfolio .portfolio-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 780px) {
+        .navbar a:nth-child(2) {
+            color: var(--white-color);
+        }
+    }
+
+    @media (max-width: 768px) {
+        #menu-icon {
+            display: block;
+        }
+
+        #darkMode-icon {
+            position: absolute;
+            right: 7rem;
+            font-size: 2.6rem;
+            color: var(--text-color);
+            margin-bottom: .1rem;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem 3%;
+            background: var(--bg-color);
+            border-top: .1rem solid rgba(0, 0, 0, .2);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            display: none;
+        }
+
+        .navbar.active {
+            display: block;
+        }
+
+        .navbar a {
+            display: block;
+            font-size: 2rem;
+            margin: 3rem 0;
+            color: var(--text-color);
+        }
+
+        .navbar a:nth-child(1),
+        .navbar a:nth-child(2) {
+            color: var(--text-color);
+        }
+
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        .navbar a::before {
+            display: none;
+        }
+
+        .home {
+            padding: 0 3% 23rem;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .home-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .home-content h1 {
+            font-size: 5rem;
+        }
+
+        .home-content .social-media a {
+            margin: 2.5rem .75rem 3rem;
+        }
+
+        .home .profession-container {
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .home .profession-container .profession-box {
+            position: fixed;
+            top: 450px;
+            left: 0;
+            width: 100%;
+        }
+
+        .home .profession-box .profession {
+            padding: 0 13px;
+            left: auto;
+            transform-origin: 0;
+        }
+
+        .home .profession-box .profession:nth-child(1) {
+            transform: rotate(-90deg) translate(-120px, -210px);
+        }
+
+        .home .profession-box .profession:nth-child(1) i {
+            margin-right: 0;
+        }
+
+        .home .profession-box .profession:nth-child(2) {
+            transform: rotate(0deg) translate(0, -325px);
+        }
+
+        .home .profession-box .profession:nth-child(3) {
+            transform: rotate(90deg) translate(-115px, -450px);
+        }
+
+        .home .profession-box .profession:nth-child(4) {
+            transform: rotate(180deg) translate(-220px, -325px);
+        }
+
+        .home .profession-box .circle {
+            position: fixed;
+            width: 670px;
+            height: 670px;
+            z-index: -1;
+        }
+
+        .home .profession-container .overlay {
+            position: fixed;
+            top: 70rem;
+            left: 50%;
+            right: 0;
+            transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
+            border-width: 23.9rem;
+        }
+
+        .about {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 70vw;
+            margin-top: -2rem;
+        }
+
+        .testimonial-container .testimonial-wrapper {
+            padding: 5rem 0;
+        }
+
+        .testimonial-content .testimonial-slide {
+            padding: 3rem 2rem;
+        }
+
+        .testimonial-box .swiper-button-next,
+        .testimonial-box .swiper-button-prev {
+            display: none;
+        }
+    }
+
+    @media (max-width: 580px) {
+        .portfolio .portfolio-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 450px) {
+        html {
+            font-size: 50%;
+        }
+
+        #darkMode-icon {
+            right: 6rem;
+        }
+
+        .home .profession-box .profession:nth-child(1) {
+            transform: rotate(-90deg) translate(-110px, -220px);
+        }
+
+        .home .profession-box .profession:nth-child(2) {
+            transform: rotate(0deg) translate(5px, -325px);
+        }
+
+        .home .profession-box .profession:nth-child(3) {
+            transform: rotate(90deg) translate(-105px, -440px);
+        }
+
+        .home .profession-box .profession:nth-child(4) {
+            transform: rotate(180deg) translate(-210px, -325px);
+        }
+
+        .home .profession-container .overlay {
+            top: 80rem;
+        }
+
+        .contact form .input-box input {
+            width: 100%;
+        }
+
+        .footer {
+            flex-direction: column-reverse;
+        }
+
+        .footer p {
+            text-align: center;
+            margin-top: 2rem;
+        }
+    }
+
+    @media (max-width: 365px) {
+        .about-img img {
+            width: 90vw;
+        }
+    }
+
+    @media (max-width: 315px) {
+        .home-content h1 {
+            font-size: 4.5rem;
+        }
+    }
+    img {
+        border-radius: 20px;
+    }
+
+
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-filter: url("#goo");
+        filter: url("#goo");
+    }
+
+    svg {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+    <!-- header design -->
+    <header class="header">
+        <a href="#" class="logo">DTC </a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Courses</a>
+            <a href="#portfolio">Direct Link</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="bx bx-moon" id="darkMode-icon"></div>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <!-- home section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Welcome To</h3>
+            <h1 id="dtc-campus" class="rb-heading-index-4">Delhi Technical Campus</h1>
+            <p>
+              Delhi Technical Campus, located in Greater Noida, is a prominent educational institution offering a range of technical programs in the fields of engineering, architecture, and management. 
+            </p>
+            <p>Established in 1998, the campus is affiliated with Guru Gobind Singh Indraprastha University, known for its high-quality education and vibrant learning environment.
+            Delhi Technical Campus is renowned for its comprehensive approach to education, ensuring a holistic and constructive learning experience for students.</p>
+
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+
+            <a href="https://amritraj1st.github.io/wbp-signup/" class="btn">Records</a>
+        </div>
+       <!-- Doneeeeeeeeeeeeeeeeee -->
+
+
+        <div class="profession-container">
+            <div class="profession-box">
+                <div class="profession" style="--i:0;">
+                    <i class='#'></i>
+                    <h3>B.Tech <br>
+                    CSE, CST, <br>  AIML & AIDS</h3>
+                </div>
+                <div class="profession" style="--i:1;">
+                    <i class='#'></i>
+
+                    <h3>Bachelor of <br> Computer
+                      <br>Applications</h3>
+                </div>
+                <div class="profession" style="--i:2;">
+                    <i class='#'></i>
+                    <h3>Architecture</h3>
+                </div>
+                <div class="profession" style="--i:3;">
+                    <i class='#'></i>
+                    <h3>BBA / B.Com / MBA</h3>
+                </div>
+
+                <div class="circle"></div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+      <!-- OWN img -->
+        <div class="home-img">
+            <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/%5Bremoval.ai%5D_bd2ddfe4-2e0a-42da-aa3e-d54a980bf686-diploma-student-course-bachelor_s-degree-academic-degree-student-transparent-background-png-clipart_ONP8OX.png?raw=true" alt="" data-recalc-dims="1">
+        </div>
+    </section>
+
+    <!-- about section design -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img decoding="async" src="https://delhitechnicalcampus.ac.in/wp-content/uploads/2018/04/B.ARCH_.jpg" alt="">
+        </div>
+
+        <div class="about-content">
+            <h2 id="about-me" class="rb-heading-index-9 heading">About <span>Us</span></h2>
+            <h3>
+              Offering dedicated faculty and mentorship to support students' academic and professional development.
+            </h3>
+            <p>
+              Focus on academic excellence and practical exposure, Delhi Technical Campus has a track record of producing successful graduates. The institute's faculty comprises dedicated educators who provide guidance and mentorship to students.
+            </p>
+            <p>
+              Delhi Technical Campus is known for its strong industry connections, leading to impressive placement opportunities for its students. The campus has a history of placements in renowned companies like IBM, TCS, Cognizant, Byjus, Toppr, and more. Students at Delhi Technical Campus have excelled in various domains, securing placements with attractive packages and gaining valuable experience in their chosen fields.
+            </p>
+            <a href="https://delhitechnicalcampus.ac.in/about-us/" class="btn">Read More</a>
+        </div>
+    </section>
+
+
+    <section class="services" id="services">
+        <h2 id="my-services" class="rb-heading-index-11 heading">Our <span>Courses</span></h2>
+
+        <div class="services-container">
+            <div class="services-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>B.Tech & Computer Application</h3>
+                <p>Delhi Technical Campus offers a diverse range of B.Tech and BCA programs designed to equip students with cutting-edge skills and knowledge in the field of technology.We Offer Computer Science Engineering (CSE), Artificial Intelligence and Machine Learning (AIML), and Artificial Intelligence and Data Science (AIDS) in our campus.</p>
+                <a href="https://delhitechnicalcampus.ac.in/b-tech/cse/" class="btn">Read More</a>
+            </div>
+            <div class="services-box">
+                <i class='bx bxs-paint'></i>
+                <h3>Business Administration & Commerce </h3>
+                <p>Delhi Technical Campus (DTC) offers a diverse range of programs including Master of Business Administration (MBA), Bachelor of Business Administration (BBA), and Bachelor of Commerce (BCom). These programs provide students with essential knowledge and skills in business and commerce, preparing them for successful careers in their respective fields.
+                </p>
+                <a href="https://delhitechnicalcampus.ac.in/master-business-administration/" class="btn">Read More</a>
+            </div>
+            <div class="services-box">
+                <i class='bx bx-bar-chart-alt'></i>
+                <h3>Architecture</h3>
+                <p> DTC's B.Arch program emphasizes practical learning, industry exposure, and modern facilities to nurture students' creativity and technical skills.The program's curriculum, combined with DTC's infrastructure and faculty, prepares students for successful careers in the field of architecture.
+                . The program is affiliated with Guru Gobind Singh Indraprastha University and approved by the Council of Architecture (COA)</p>
+                <a href="https://delhitechnicalcampus.ac.in/b-arch/" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="portfolio" id="portfolio">
+        <h2 id="latest-project" class="rb-heading-index-15 heading">Our <span>features</span></h2>
+
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img decoding="async" src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/03/technology-trend-freepik-1647963838.jpg" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>IMPORTANT DOWNLOADS</h4>
+                    <p>You can download important documents form here</p>
+                    <a href="https://delhitechnicalcampus.ac.in/important-downloads/"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img decoding="async" src="https://vajiram-prod.s3.ap-south-1.amazonaws.com/What_is_Generative_AI_63beafff52.webp" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>Admission Brochure</h4>
+                    <p>Download Admission Brochure from here</p>
+                    <a href="https://drive.google.com/file/d/1zs8QXqMK7bPyUNk3mfYI8DB-TcIe2zHD/view?usp=drive_link"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img decoding="async" src="https://media.istockphoto.com/id/688742092/photo/fees-sign.jpg?s=612x612&w=0&k=20&c=Eh-78hs9PehN-bZr1pUuiJjgbd0BspZ03ZTJ-YtUuz4=" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>Fee Payment</h4>
+                    <p>Click here to pay your fee</p>
+                    <a href="https://fees.delhitechnicalcampus.ac.in/"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img decoding="async" src="https://st2.depositphotos.com/4746531/7081/i/450/depositphotos_70815093-stock-photo-cricket-ball.jpg" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>Sports Club</h4>
+                    <p>Sports details are here</p>
+                    <a href="https://delhitechnicalcampus.ac.in/sports-activities/"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/Untitled%20design_20240501_123108_0000.png?raw=true" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>Admission Form</h4>
+                    <p>Fill yout admission form</p>
+                    <a href="https://delhitechnicalcampus.ac.in/admissions-open/"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/Untitled%20design_20240501_123310_0000.png?raw=true" alt="">
+
+                <div class="portfolio-layer">
+                    <h4>Student Records</h4>
+                    <p>Student Record Page</p>
+                    <a href="https://amritraj1st.github.io/wbp-signup/"><i class='bx bx-link-external'>
+                      <!-- Record link -->
+                    </i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- testimonial design -->
+    <div class="testimonial-container">
+        <h2 id="valuable-testimonial" class="rb-heading-index-22 heading">Valuable <span>Testimonial</span></h2>
+
+        <div class="testimonial-wrapper">
+            <div class="testimonial-box mySwiper">
+                <div class="testimonial-content swiper-wrapper">
+                    <div class="testimonial-slide swiper-slide">
+                        <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/WhatsApp%20Image%202024-03-23%20at%2000.59.25.jpeg?raw=true" alt="" data-recalc-dims="1">
+                        <h3>Amrit Raj</h3>
+                        <p>Amrit Raj is a dedicated and passionate BCA student currently pursuing his degree at DTC. With a profound interest in technology and its applications, Amrit's academic journey has been marked by a relentless pursuit of knowledge and skills in the field of computer science. <br>
+                        As he progresses through his BCA program at DTC, Amrit remains focused on honing his skills and acquiring the knowledge necessary to make a meaningful contribution to the world of technology. With his passion, determination, and dedication, he aspires to build a successful career in IT and make a positive impact on society.
+
+</p>
+                    </div>
+                    <div class="testimonial-slide swiper-slide">
+
+<!-- Harsh Details -->
+                      <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/WhatsApp%20Image%202024-05-01%20at%2012.10.47.jpeg?raw=true" alt="" data-recalc-dims="1">
+                        <h3>Harsh Kumar Rai</h3>
+                        <p>As a dedicated BCA student, I embody a unique blend of technical proficiency, creativity, and a passion for learning. With a keen eye for detail and a knack for problem-solving, I excel in analyzing complex data and developing innovative solutions. My strong foundation in programming languages and software development equips me to tackle challenges with precision and efficiency. <br>
+
+                        Beyond technical skills, I possess excellent communication abilities and a collaborative spirit, making me a valuable team player in group projects and discussions. I am proactive in seeking opportunities for growth and skill enhancement, constantly striving to stay updated with the latest trends in the IT industry.</p>
+                    </div>
+                    <div class="testimonial-slide swiper-slide">
+                      <!-- Company Details -->
+                        <img decoding="async" src="https://github.com/amritraj1st/login.logo/blob/main/WhatsApp%20Image%202024-05-01%20at%2012.14.32.jpeg?raw=true" alt="">
+                        <h3>Vipul Dubey</h3>
+                        <p>A BCA Student with passionate advocate for growth and positivity, I am a firm believer in the transformative power of kindness and resilience. Dedicated to continuous self-improvement and spreading joy wherever I go, I strive to uplift those around me and create a positive impact. Embracing challenges with a smile and a can-do attitude, I approach life with a sense of optimism and determination. My journey is guided by a deep commitment to personal growth and the pursuit of excellence in all aspects of life. Let's inspire each other to reach new heights and become the best versions of ourselves, one step at a time. Together, we can create a world filled with compassion, understanding, and boundless possibilities. Join me on this journey of self-discovery and empowerment, and let's make a difference in the lives of others through our actions and words.</p>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contact section design -->
+
+
+
+
+
+
+    <section class="contact" id="contact">
+        <h2 id="contact-me" class="rb-heading-index-26 heading">Contact <span>Me!</span></h2>
+
+      <form
+        action="https://formspree.io/f/xrgnjkdw"
+        method="POST"
+      >
+            <div class="input-box">
+                <input type="text" placeholder="Full Name" name="Name" required>
+                <input type="email" placeholder="Email Address" name="Mailid" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number" name="Phone" required>
+                <input type="text" placeholder="Email Subject" name="Subject" required>
+            </div>
+            <textarea id="" cols="30" rows="10" placeholder="Your Message" name="Queries" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <!-- footer design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <center><p>Copyright &copy; 2024 by  | All Rights Reserved By Amrit Raj</p></center>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+      <canvas id="canvasbg"></canvas>
+<canvas id="canvas"></canvas>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+    </defs>
+</svg>
+
+    </footer>
+
+
+
+
+<script src="https://www.googletagmanager.com/gtag/js?id=GT-552QH6DG" id="google_gtagjs-js" async></script><script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["codewithshobhit.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-552QH6DG");
+</script><script type='text/javascript' src='https://codewithshobhit.com/_jb_static/??-eJyljEEOQDAQAH/jpLZb1fYi3lJrBYkSbdL4PQkHd9eZzEDeBW0hcUhAniaGvG9incM8noAWtTTGWQU+Rk7xI8XEfuBDjI3WktBVN66WWMLfYW00SaP8O+zW9qmsQldQ3+IFWck6nA=='></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9016625147108323"
+     crossorigin="anonymous"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NTCKF6PX');</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9016625147108323&amp;host=ca-host-pub-2644536267352236" crossorigin="anonymous"></script><script>
+      ( function( w, d, s, l, i ) {
+        w[l] = w[l] || [];
+        w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+        var f = d.getElementsByTagName( s )[0],
+          j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore( j, f );
+      } )( window, document, 'script', 'dataLayer', 'GTM-NTCKF6PX' );
+
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9016625147108323"
+     crossorigin="anonymous"></script><script src="https://unpkg.com/scrollreveal"></script><script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script><script src="js/script.js"></script><script  src="./script.js"></script><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    const downloadBtn = document.querySelector(".download-btn");
+    const fileLink = " https://github.com/Codewithshobhit/Codewithshobhit-Cool-Responsive-Portfolio-Using-HTML-CSS-/archive/refs/heads/main.zip ";
+
+    const initTimer = () => {
+    if (downloadBtn.classList.contains("disable-timer")) {
+      return (location.href = fileLink);
+    }
+    let timer = parseInt(downloadBtn.dataset.timer);
+    downloadBtn.classList.add("timer");
+    downloadBtn.innerHTML =
+      "Your download will begin in <b>" + timer + "</b> seconds";
+    const initCounter = setInterval(() => {
+      if (timer > 0) {
+      timer--;
+      return (downloadBtn.innerHTML =
+        "Your download will begin in <b>" + timer + "</b> seconds");
+      }
+      clearInterval(initCounter);
+      location.href = fileLink;
+      downloadBtn.innerText = "Your file is downloading...";
+      setTimeout(() => {
+      downloadBtn.classList.replace("timer", "disable-timer");
+      downloadBtn.innerHTML =
+        "<i class='fa fa-download'></i><span class='text'>Download Again</span>";
+      }, 3000);
+    }, 1000);
+    };
+
+    downloadBtn.addEventListener("click", initTimer);
+  });
+  </script><script>
+            (function () {
+                        const darkModeID = 'RubyDarkMode';
+                const currentMode = navigator.cookieEnabled ? (localStorage.getItem(darkModeID) || 'default') : 'default';
+                const selector = currentMode === 'dark' ? '.mode-icon-dark' : '.mode-icon-default';
+                const icons = document.querySelectorAll(selector);
+                if (icons.length) {
+                    icons.forEach(icon => icon.classList.add('activated'));
+                }
+
+                        const privacyBox = document.getElementById('rb-privacy');
+                const currentPrivacy = navigator.cookieEnabled ? localStorage.getItem('RubyPrivacyAllowed') || '' : '1';
+                if (!currentPrivacy && privacyBox?.classList) {
+                    privacyBox.classList.add('activated');
+                }
+                        const readingSize = navigator.cookieEnabled ? sessionStorage.getItem('rubyResizerStep') || '' : '1';
+                if (readingSize) {
+                    const body = document.querySelector('body');
+                    switch (readingSize) {
+                        case '2':
+                            body.classList.add('medium-entry-size');
+                            break;
+                        case '3':
+                            body.classList.add('big-entry-size');
+                            break;
+                    }
+                }
+            })();
+    </script><script>
+            (function () {
+                let currentMode = null;
+                const darkModeID = 'RubyDarkMode';
+                        currentMode = navigator.cookieEnabled ? localStorage.getItem(darkModeID) || null : 'default';
+                if (!currentMode) {
+                              currentMode = 'default';
+                    localStorage.setItem(darkModeID, 'default');
+                          }
+                document.body.setAttribute('data-theme', currentMode === 'dark' ? 'dark' : 'default');
+                    })();
+    </script><script type='text/javascript'>
+        const lazyloadRunObserver = () => {
+          const dataAttribute = 'data-e-bg-lazyload';
+          const lazyloadBackgrounds = document.querySelectorAll( `[${ dataAttribute }]:not(.lazyloaded)` );
+          const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+          entries.forEach( ( entry ) => {
+            if ( entry.isIntersecting ) {
+              let lazyloadBackground = entry.target;
+              const lazyloadSelector = lazyloadBackground.getAttribute( dataAttribute );
+              if ( lazyloadSelector ) {
+                lazyloadBackground = entry.target.querySelector( lazyloadSelector );
+              }
+              if( lazyloadBackground ) {
+                lazyloadBackground.classList.add( 'lazyloaded' );
+              }
+              lazyloadBackgroundObserver.unobserve( entry.target );
+            }
+          });
+          }, { rootMargin: '100px 0px 100px 0px' } );
+          lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+            lazyloadBackgroundObserver.observe( lazyloadBackground );
+          } );
+        };
+        const events = [
+          'DOMContentLoaded',
+          'elementor/lazyload/observe',
+        ];
+        events.forEach( ( event ) => {
+          document.addEventListener( event, lazyloadRunObserver );
+        } );
+      </script><script type="text/template" id="bookmark-toggle-template">
+      <i class="rbi rbi-bookmark" aria-hidden="true" data-title="Save it"></i>
+      <i class="bookmarked-icon rbi rbi-bookmark-fill" aria-hidden="true" data-title="Undo Save"></i>
+    </script><script type="text/template" id="bookmark-ask-login-template">
+      <a class="login-toggle" data-title="Sign In to Save" href="https://codewithshobhit.com/wp-login.php?redirect_to=https%3A%2F%2Fcodewithshobhit.com%2Fcool-responsive-portfolio-using-html-css-and-js"><i class="rbi rbi-bookmark" aria-hidden="true"></i></a>
+    </script><script type="text/template" id="follow-ask-login-template">
+      <a class="login-toggle" data-title="Sign In to Follow" href="https://codewithshobhit.com/wp-login.php?redirect_to=https%3A%2F%2Fcodewithshobhit.com%2Fcool-responsive-portfolio-using-html-css-and-js"><i class="follow-icon rbi rbi-plus" aria-hidden="true"></i></a>
+    </script><script type="text/template" id="follow-toggle-template">
+      <i class="follow-icon rbi rbi-plus" data-title="Follow"></i>
+      <i class="followed-icon rbi rbi-bookmark-fill" data-title="Unfollow"></i>
+    </script><script type="text/template" id="bookmark-notification-template">
+        <div class="bookmark-notification-inner {{classes}}">
+          <div class="bookmark-featured">{{image}}</div>
+          <div class="bookmark-inner">
+            <span class="bookmark-title h5">{{title}}</span><span class="bookmark-desc">{{description}}</span>
+          </div>
+        </div>
+      </script><script type="text/template" id="follow-notification-template">
+        <div class="follow-info bookmark-notification-inner {{classes}}">
+          <span class="follow-desc"><span>{{description}}</span><strong>{{name}}</strong></span>
+        </div>
+      </script><script src="https://stats.wp.com/e-202418.js" id="jetpack-stats-js" data-wp-strategy="defer"></script><script id="jetpack-stats-js-after">
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"231702399\",\"post\":\"83\",\"tz\":\"0\",\"srv\":\"codewithshobhit.com\",\"j\":\"1:13.3.1\"}") ]);
+_stq.push([ "clickTrackerInit", "231702399", "83" ]);
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js" id="prismjs_core-js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js" id="prismjs_loader-js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" id="prismjs_normalize-js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js" id="prismjs_line_numbers-js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js" id="prismjs_toolbar-js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js" id="prismjs_copy_to_clipboard-js"></script><script id="wpo_min-footer-0-js-extra">
+var foxizCoreParams = {"ajaxurl":"https:\/\/codewithshobhit.com\/wp-admin\/admin-ajax.php","darkModeID":"RubyDarkMode","cookieDomain":"","cookiePath":"\/"};
+var wpcf7 = {"api":{"root":"https:\/\/codewithshobhit.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+</script><script id="wpo_min-footer-2-js-extra">
+var foxizParams = {"twitterName":"Codewithshobhit","sliderSpeed":"5000","sliderEffect":"slide","sliderFMode":"1","highlightShares":"1","highlightShareFacebook":"1","highlightShareTwitter":"1","highlightShareReddit":"1","singleLoadNextLimit":"20","yesReadingHis":"83","liveInterval":"600"};
+var uid_28f6f0c = {"uuid":"uid_28f6f0c","name":"grid_box_1","order":"date_posts","posts_per_page":"8","unique":"1","crop_size":"foxiz_crop_g2","entry_category":"bg-4","title_tag":"h4","entry_meta":["like"],"review_meta":"-1","sponsor_meta":"2","bookmark":"1","entry_format":"bottom","box_style":"shadow","pagination":"load_more","paged":"1","page_max":"21","content_source":"related","related_id":"83","post_not_in":[83,11044,10730,10584,10080,8723,8513]};
+</script><script type='text/javascript' src='https://codewithshobhit.com/_jb_static/??-eJytzEEOgyAQheHbdFUcYAZGF6ZnQcKkNhFMITHevk3qwn3dvj/vg21VseSWcoMY4jPBtha1zHmWHQwb0t73bCHUmlo9RSWltPRWQig2kO2+c/eqd/gXDBNaRNSXgWZwngTxMlAzeTOwO8DHMv5e7Hq6xWk0H3uMcWM='></script><script src="https://codewithshobhit.com/wp-content/cache/wpo-minify/1714066872/assets/wpo-minify-footer-061b11f8.min.js" id="wpo_min-footer-11-js"></script>
+<script>
+  /*========== menu icon navbar ==========*/
+  let menuIcon = document.querySelector('#menu-icon');
+  let navbar = document.querySelector('.navbar');
+
+  menuIcon.onclick = () => {
+      menuIcon.classList.toggle('bx-x');
+      navbar.classList.toggle('active');
+  };
+
+
+  /*========== scroll sections active link ==========*/
+  let sections = document.querySelectorAll('section');
+  let navLinks = document.querySelectorAll('header nav a');
+
+  window.onscroll = () => {
+      sections.forEach(sec => {
+          let top = window.scrollY;
+          let offset = sec.offsetTop - 150;
+          let height = sec.offsetHeight;
+          let id = sec.getAttribute('id');
+
+          if(top >= offset && top < offset + height) {
+              navLinks.forEach(links => {
+                  links.classList.remove('active');
+                  document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+              });
+          };
+      });
+
+
+  /*========== sticky navbar ==========*/
+  let header = document.querySelector('.header');
+
+  header.classList.toggle('sticky', window.scrollY > 100);
+
+
+  /*========== remove menu icon navbar when click navbar link (scroll) ==========*/
+  menuIcon.classList.remove('bx-x');
+  navbar.classList.remove('active');
+
+  };
+
+
+  /*========== swiper ==========*/
+  var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 50,
+      loop: true,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+  });
+
+
+  /*========== dark light mode ==========*/
+  let darkModeIcon = document.querySelector('#darkMode-icon');
+
+  darkModeIcon.onclick = () => {
+      darkModeIcon.classList.toggle('bx-sun');
+      document.body.classList.toggle('dark-mode');
+  };
+
+
+  /*========== scroll reveal ==========*/
+  ScrollReveal({
+      // reset: true,
+      distance: '80px',
+      duration: 2000,
+      delay: 200
+  });
+
+  ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+  ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
+  ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
+  ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+</script>
+
+
+</body>
+</html>
